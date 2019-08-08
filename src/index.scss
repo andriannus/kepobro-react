@@ -1,0 +1,59 @@
+$link: #363636;
+$link-hover: #3273dc;
+$menu-item-active-background-color: #363636;
+
+$list-font: Bold BoldItalic Thin ThinItalic Light LightItalic Medium MediumItalic Italic Regular;
+
+@font-face {
+  font-family: 'Roboto';
+  font-display: 'swap';
+
+  @each $font in $list-font {
+    src: url('assets/fonts/roboto/Roboto-#{$font}.ttf') format('truetype');
+  }
+}
+
+.bra {
+  &-3 {
+    border-radius: 3px;
+  }
+
+  &-10 {
+    border-radius: 10px;
+  }
+}
+
+.brb-50-per {
+  border-radius: 50%;
+}
+
+.mb {
+  &-5 {
+    margin-bottom: 5px;
+  }
+
+  &-10 {
+    margin-bottom: 10px;
+  }
+}
+
+.mr {
+  &-5 {
+    margin-right: 5px;
+  }
+
+  &-10 {
+    margin-right: 10px;
+  }
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.sidebar {
+  position: sticky !important;
+  top: 62px;
+}
+
+@import 'bulma/bulma.sass';
