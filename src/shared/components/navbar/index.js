@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container } from './navbar';
+import { Container } from 'shared/components/navbar/navbar';
 
 const Navbar = () => {
   return (
