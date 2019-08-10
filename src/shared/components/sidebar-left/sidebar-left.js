@@ -5,10 +5,12 @@ import { CATEGORIES } from 'assets/consts/categories';
 
 export const Container = () => {
   return (
-    <div className="card is-hidden-mobile sidebar">
-      <CardHeader />
+    <div className="column">
+      <div className="card is-hidden-mobile sidebar">
+        <CardHeader />
 
-      <CardContent />
+        <CardContent />
+      </div>
     </div>
   )
 }

@@ -4,16 +4,18 @@ import profileImage from 'assets/images/photo.jpg';
 
 export const Container = () => {
   return (
-    <div className="sidebar">
-      <div className="card mb-10">
-        <CardHeader />
+    <div className="column">
+      <div className="sidebar">
+        <div className="card mb-10">
+          <CardHeader />
 
-        <CardContent />
+          <CardContent />
 
-        <CardFooter />
+          <CardFooter />
+        </div>
+
+        <Credits />
       </div>
-
-      <Credits />
     </div>
   )
 }
