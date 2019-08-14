@@ -32,6 +32,8 @@ const CardContent = () => {
         <ul className="menu-list">
           {
             CATEGORIES.map((category, key) => {
+              if (category === 'trending') return null;
+
               return(
                 <li key={key}>
                   <NavLink
