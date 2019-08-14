@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { CATEGORIES } from 'assets/consts/categories';
 
@@ -34,11 +34,14 @@ const CardContent = () => {
             CATEGORIES.map((category, key) => {
               return(
                 <li key={key}>
-                  <Link to={category}>
+                  <NavLink
+                    activeClassName="is-active"
+                    to={`/${category}`}
+                  >
                     <span className="is-capitalized">
                       {category}
                     </span>
-                  </Link>
+                  </NavLink>
                 </li>
               )
             })
