@@ -77,7 +77,7 @@ const Credits = () => {
   return (
     <p className="has-text-grey has-text-justified is-size-7">
       Powered by <a href="https://newsapi.org">News API</a> ·
-      Developed with <a href="https://reactjs.org/">React.js</a>,
+      Developed with <a href="https://reactjs.org/">React.js</a>,&nbsp;
       <a href="https://bulma.io/">Bulma</a>,
       and <a href="https://www.netlify.com/">Netlify</a>
     </p>
