@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { CATEGORIES } from 'assets/consts/categories';
+import { CATEGORIES } from 'shared/constants/news.constant';
 
 export const Container = () => {
   return (
