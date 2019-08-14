@@ -1,23 +1,46 @@
 import React, { Fragment, useContext } from 'react';
+import Helmet from 'react-helmet';
 
-import UserContext from 'pages/news/modules/services/news.context';
+import NewsContext from 'pages/news/modules/services/news.context';
 
 export const Container = () => {
   return (
-    <div className="column is-half">
-      <div className="card">
-        <CardHeader />
+    <Fragment>
+      <Head />
 
-        <CardContent />
+      <div className="column is-half">
+        <div className="card">
+          <CardHeader />
 
-        <CardFooter />
+          <CardContent />
+
+          <CardFooter />
+        </div>
       </div>
-    </div>
+    </Fragment>
+  )
+}
+
+const Head = () => {
+  const { head } = useContext(NewsContext);
+
+  return (
+    <Helmet>
+      <title>{ head.title }</title>
+
+      {
+        head.meta.map((m, key) => {
+          return (
+            <meta key={key} property={m.property} content={m.content} />
+          )
+        })
+      }
+    </Helmet>
   )
 }
 
 const CardHeader = () => {
-  const { isLoading, title } = useContext(UserContext);
+  const { isLoading, title } = useContext(NewsContext);
 
   return (
     <header className="card-header">
@@ -31,7 +54,7 @@ const CardHeader = () => {
 }
 
 const CardContent = () => {
-  const { articles, isLoading } = useContext(UserContext);
+  const { articles, isLoading } = useContext(NewsContext);
 
   return (
     <div className="card-content">
@@ -43,7 +66,7 @@ const CardContent = () => {
 }
 
 const CardFooter = () => {
-  const { isLoading } = useContext(UserContext);
+  const { isLoading } = useContext(NewsContext);
 
   if (isLoading) return null;
 
@@ -61,7 +84,7 @@ const CardFooter = () => {
 }
 
 const RefreshButton = () => {
-  const { isLoading } = useContext(UserContext);
+  const { isLoading } = useContext(NewsContext);
 
   if (isLoading) return null;
 
@@ -69,7 +92,7 @@ const RefreshButton = () => {
     <span
       className="card-header-icon"
       title="Refresh News"
-      onClick={() => console.log('getNews()')}
+      onClick={() => window.location.reload() }
     >
       <span className="icon">
         <i className="fas fa-sync-alt"></i>
@@ -98,7 +121,7 @@ const ArticleImage = ({imageTitle, urlToImage}) => {
 }
 
 const Article = () => {
-  const { articles, isLoading } = useContext(UserContext);
+  const { articles, isLoading } = useContext(NewsContext);
 
   if (isLoading) return null;
 
@@ -143,7 +166,7 @@ const Article = () => {
 }
 
 const ProgressBar = () => {
-  const { isLoading } = useContext(UserContext);
+  const { isLoading } = useContext(NewsContext);
 
   if (!isLoading) return null;
 

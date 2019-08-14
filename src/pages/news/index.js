@@ -1,53 +1,88 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 import NewsContext from 'pages/news/modules/services/news.context';
+import useFetchArticles from 'pages/news/modules/services/news.hook';
 import { Container } from 'pages/news/news-content';
 import { API } from 'shared/constants/api.constant';
 import { capitalize } from 'shared/utils/string.util';
 
 const News = ({ category }) => {
-  const [articles, setArticles] = useState([]);
-  const [isLoading, setIsLoading ] = useState(false);
-  const [title, setTitle] = useState('');
+  const title = capitalize(category);
+  const url = `${API.URL}?${getQueryParams(category)}`;
 
-  useEffect(() => {
-    setTitle(capitalize(category));
-    setArticles([]);
-    setIsLoading(true);
+  const [articles, isLoading] = useFetchArticles(url);
+
+  const head = {
+    title: getTitle(category),
+    meta: [
+      {
+        name: 'description',
+        content: getDescription(category),
+      },
+      {
+        name: 'title',
+        content: getTitle(category),
+      },
+      {
+        property: 'og:description',
+        content: getDescription(category),
+      },
+      {
+        property: 'og:title',
+        content: getTitle(category),
+      },
+      {
+        name: 'og:url',
+        content: 
+          `https://news.andriannus.id/${category === 'trending' ? '' : category}`
+      },
+      {
+        name: 'twitter:description',
+        content: getDescription(category),
+      },
+      {
+        name: 'twiter:title',
+        content: getTitle(category),
+      }
+    ]
+  }
+
+  function getQueryParams(category) {
+    const queryArray = [
+      `apiKey=${API.KEY}`,
+      `country=${API.COUNTRY}`
+    ];
   
-    axios.get(`${API.URL}?${getQueryParams(category)}`)
-      .then((res) => {
-        setArticles(res.data.articles);
-      })
-      .catch(() => {
-        setArticles([]);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      })
-  }, [category])
+    if (category !== 'trending') {
+      queryArray.push(`category=${category}`);
+    }
+  
+    return queryArray.join('&');
+  }
+
+  function getTitle(category) {
+    if (category === 'trending') {
+      return 'KepoBro News - Kepoin tentang yang hits saat ini!';
+    }
+
+    return `${capitalize(category)} - KepoBro News`
+  }
+
+  function getDescription(category) {
+    if (category === 'trending') {
+      return 'Berita lengkap dan terupdate dari News API';
+    }
+
+    return `Berita lengkap dan terupdate mengenai ${category} dari News API`;
+  }
 
   return (
     <NewsContext.Provider
-      value={{ articles, isLoading, title }}
+      value={{ articles, head, isLoading, title }}
     >
       <Container />
     </NewsContext.Provider>
   )
-}
-
-const getQueryParams = (category) => {
-  const queryArray = [
-    `apiKey=${API.KEY}`,
-    `country=${API.COUNTRY}`
-  ];
-
-  if (category !== 'trending') {
-    queryArray.push(`category=${category}`);
-  }
-
-  return queryArray.join('&');
 }
 
 export default News;
