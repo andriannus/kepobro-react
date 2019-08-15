@@ -28,7 +28,9 @@ const Main = () => {
         <div className="columns">
           <LoadableSidebarLeft />
 
-          <MainRoutes />
+          <div className="column is-half">
+            <MainRoutes />
+          </div>
 
           <LoadableSidebarRight />
         </div>

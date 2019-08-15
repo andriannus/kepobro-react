@@ -8,14 +8,12 @@ export const Container = () => {
     <Fragment>
       <Head />
 
-      <div className="column is-half">
-        <div className="card">
-          <CardHeader />
+      <div className="card">
+        <CardHeader />
 
-          <CardContent />
+        <CardContent />
 
-          <CardFooter />
-        </div>
+        <CardFooter />
       </div>
     </Fragment>
   )
