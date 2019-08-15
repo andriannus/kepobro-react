@@ -14,6 +14,11 @@ const LoadableNotFound = Loadable({
   loading: () => null
 });
 
+const LoadableReadNews = Loadable({
+  loader: () => import('pages/read'),
+  loading: () => null
+})
+
 const MainRoutes = () => {
   return (
     <Switch>
@@ -31,11 +36,9 @@ const MainRoutes = () => {
           )
         })
       }
-
-      <Route
-        exact
-        component={LoadableNotFound}
-      />
+      
+      <Route exact path="/read" component={LoadableReadNews} />
+      <Route exact component={LoadableNotFound} />
     </Switch>
   )
 }

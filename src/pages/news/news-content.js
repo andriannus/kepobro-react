@@ -2,6 +2,7 @@ import React, { Fragment, useContext } from 'react';
 import Helmet from 'react-helmet';
 
 import NewsContext from 'pages/news/modules/services/news.context';
+import 'pages/news/news-content.scss';
 
 export const Container = () => {
   return (
@@ -119,7 +120,7 @@ const ArticleImage = ({imageTitle, urlToImage}) => {
 }
 
 const Article = () => {
-  const { articles, isLoading } = useContext(NewsContext);
+  const { articles, isLoading, onReadArticle } = useContext(NewsContext);
 
   if (isLoading) return null;
 
@@ -143,8 +144,8 @@ const Article = () => {
                   className="content"
                 >
                   <p
-                    className="has-text-justified mb-10"
-                    onClick={() => console.log('readArticle(article)')}
+                    className="has-text-justified mb-10 is-link"
+                    onClick={() => onReadArticle(article)}
                   >
                     <strong>{article.title}</strong>
                   </p>

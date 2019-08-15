@@ -6,7 +6,7 @@ import { Container } from 'pages/news/news-content';
 import { API } from 'shared/constants/api.constant';
 import { capitalize } from 'shared/utils/string.util';
 
-const News = ({ category }) => {
+const News = ({ category, history }) => {
   const title = capitalize(category);
   const url = `${API.URL}?${getQueryParams(category)}`;
 
@@ -76,9 +76,21 @@ const News = ({ category }) => {
     return `Berita lengkap dan terupdate mengenai ${category} dari News API`;
   }
 
+  function readArticle(article) {
+    localStorage.setItem('article', JSON.stringify(article));
+
+    history.push('/read');
+  }
+
   return (
     <NewsContext.Provider
-      value={{ articles, head, isLoading, title }}
+      value={{
+        articles,
+        head,
+        isLoading,
+        onReadArticle: readArticle,
+        title
+      }}
     >
       <Container />
     </NewsContext.Provider>
