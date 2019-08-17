@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import errorImage from 'assets/images/error-404.png';
 import ReadContext from 'pages/read/modules/services/read.context';
 
-const Container = () => {
+export const Container = () => {
   const { isNotFound } = useContext(ReadContext);
 
   if(isNotFound) return <NotFound />
@@ -128,5 +128,3 @@ const NotFound = () => {
     </div>
   )
 }
-
-export default Container;

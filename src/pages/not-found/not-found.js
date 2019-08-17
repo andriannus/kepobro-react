@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import errorImage from 'assets/images/error-404.png';
 
-const Container = ({ head }) => {
+export const Container = ({ head }) => {
   return (
     <Fragment>
       <Head head={head} />
@@ -44,5 +44,3 @@ const Head = ({ head }) => {
     </Helmet>
   )
 }
-
-export default Container;

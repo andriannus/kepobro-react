@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Container from 'pages/not-found/not-found';
+import { Container } from 'pages/not-found/not-found';
 
 const NotFound = () => {
   const head = {
