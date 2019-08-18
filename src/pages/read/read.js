@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import errorImage from 'assets/images/error-404.png';
 import ReadContext from 'pages/read/modules/services/read.context';
+import { IMAGE } from 'shared/constants/news.constant';
 
 export const Container = () => {
   const { isNotFound } = useContext(ReadContext);
@@ -48,11 +49,9 @@ const CardContent = () => {
     <div className="card-content has-text-justified">
       <figure className="image mb-10">
         <img
-          src={article.urlToImage}
+          src={article.urlToImage ? article.urlToImage : IMAGE.error}
           alt={article.title}
-          onError={
-            (e) => e.target.src = 'https://bulma.io/images/placeholders/480x320.png'
-          }
+          onError={(e) => e.target.src = `${IMAGE.error}`}
         />
       </figure>
 

@@ -2,6 +2,8 @@ import React, { Fragment, useContext } from 'react';
 import Helmet from 'react-helmet';
 
 import NewsContext from 'pages/news/modules/services/news.context';
+import { IMAGE } from 'shared/constants/news.constant';
+
 import 'pages/news/news-content.scss';
 
 export const Container = () => {
@@ -104,7 +106,7 @@ const ArticleImage = ({imageTitle, urlToImage}) => {
   if (!urlToImage) {
     return (
       <img
-        src="https://bulma.io/images/placeholders/480x320.png"
+        src={IMAGE.error}
         alt={imageTitle}
       />
     )
@@ -114,7 +116,7 @@ const ArticleImage = ({imageTitle, urlToImage}) => {
     <img
       src={urlToImage}
       alt={imageTitle}
-      onError={(e) => e.target.src='https://bulma.io/images/placeholders/480x320.png'}
+      onError={(e) => e.target.src=`${IMAGE.error}`}
     />
   )
 }

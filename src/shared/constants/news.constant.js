@@ -28,3 +28,7 @@ export const NAVBAR_MENUS = [
     class: 'is-danger',
   }
 ];
+
+export const IMAGE = {
+  error: 'https://bulma.io/images/placeholders/480x320.png',
+};
