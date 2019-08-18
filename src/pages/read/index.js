@@ -4,6 +4,7 @@ import idLocale from 'date-fns/locale/id';
 
 import ReadContext from 'pages/read/modules/services/read.context';
 import { Container } from 'pages/read/read';
+
 import 'pages/read/read.scss';
 
 const Read = ({ history }) => {
@@ -27,7 +28,7 @@ const Read = ({ history }) => {
     const tempArr = text.split('')
     const startSub = tempArr.indexOf('[')
     const finishSub = tempArr.indexOf(']')
-    const substractSub = Number(finishSub) - Number(startSub) + 1
+    const substractSub = parseInt(finishSub) - parseInt(startSub) + 1
     const findString = text.substr(startSub, substractSub)
 
     return text.replace(findString, '')
