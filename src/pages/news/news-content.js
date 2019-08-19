@@ -41,7 +41,7 @@ const Head = () => {
 }
 
 const CardHeader = () => {
-  const { isLoading, title } = useContext(NewsContext);
+  const { title } = useContext(NewsContext);
 
   return (
     <header className="card-header">
@@ -49,19 +49,17 @@ const CardHeader = () => {
         {title}
       </span>
 
-      <RefreshButton isLoading={isLoading} />
+      <RefreshButton />
     </header>
   )
 }
 
 const CardContent = () => {
-  const { articles, isLoading } = useContext(NewsContext);
-
   return (
     <div className="card-content">
-      <ProgressBar isLoading={isLoading} />
+      <ProgressBar />
 
-      <Article articles={articles} />
+      <Article />
     </div>
   )
 }
@@ -102,7 +100,7 @@ const RefreshButton = () => {
   )
 }
 
-const ArticleImage = ({imageTitle, urlToImage}) => {
+const ArticleImage = ({ imageTitle, urlToImage }) => {
   if (!urlToImage) {
     return (
       <img
