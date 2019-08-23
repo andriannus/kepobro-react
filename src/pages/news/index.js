@@ -16,11 +16,11 @@ const News = ({ category, history }) => {
     title: getTitle(category),
     meta: [
       {
-        name: 'description',
+        property: 'description',
         content: getDescription(category),
       },
       {
-        name: 'title',
+        property: 'title',
         content: getTitle(category),
       },
       {
@@ -32,16 +32,16 @@ const News = ({ category, history }) => {
         content: getTitle(category),
       },
       {
-        name: 'og:url',
+        property: 'og:url',
         content: 
           `https://news.andriannus.id/${category === 'trending' ? '' : category}`
       },
       {
-        name: 'twitter:description',
+        property: 'twitter:description',
         content: getDescription(category),
       },
       {
-        name: 'twiter:title',
+        property: 'twiter:title',
         content: getTitle(category),
       }
     ]
