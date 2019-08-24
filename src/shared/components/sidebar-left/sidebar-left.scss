@@ -1,0 +1,12 @@
+.tabs.is-toggle {
+  ul {
+    li {
+      a.is-active {
+        background-color: #363636;
+        border-color: #363636;
+        color: #fff;
+        z-index: 1;
+      }
+    }
+  }
+}
