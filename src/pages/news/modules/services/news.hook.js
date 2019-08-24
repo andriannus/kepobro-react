@@ -6,19 +6,24 @@ const useFetchArticles = (url) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
+    const CancelToken = axios.CancelToken;
+    const source = CancelToken.source();
 
-    axios.get(url)
-      .then((res) => {
-        setArticles(res.data.articles);
-      })
-      .catch(() => {
-        setArticles([]);
-      })
-      .finally(() => {
+    (async () => {
+      try {
+        const result = await axios.get(url, { cancelToken: source.token });
+
+        setArticles(result.data.articles);
         setIsLoading(false);
-      });
-  }, [url])
+      } catch(error) {
+        if (axios.isCancel(error)) {
+          console.log('Request canceled');
+        }
+      }
+    })();
+
+    return () => source.cancel();
+  }, [url]);
 
   return [articles, isLoading];
 }
