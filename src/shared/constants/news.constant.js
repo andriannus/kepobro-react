@@ -11,7 +11,7 @@ export const CATEGORIES = [
 export const NAVBAR_MENUS = [
   {
     name: 'Github',
-    href: 'https://github.com/andriannus/kepobro-nuxt',
+    href: 'https://github.com/andriannus/kepobro-react',
     icon: 'fab fa-github',
     class: 'is-light',
   },
