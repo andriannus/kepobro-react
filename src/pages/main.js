@@ -19,6 +19,11 @@ const LoadableSidebarRight = Loadable({
   loading: () => null
 })
 
+const LoadableButtonToTop = Loadable({
+  loader: () => loadSharedComponent('button-to-top'),
+  loading: () => null
+})
+
 const Main = () => {
   return (
     <section className="section">
@@ -35,6 +40,8 @@ const Main = () => {
           <LoadableSidebarRight />
         </div>
       </div>
+
+      <LoadableButtonToTop />
     </section>
   );
 }
