@@ -33,7 +33,7 @@ const Head = () => {
       {
         head.meta.map((m, key) => {
           return (
-            <meta key={key} property={m.property} content={m.content} />
+            <meta key={key} name={m.name} content={m.content} />
           )
         })
       }

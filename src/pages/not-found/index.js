@@ -7,31 +7,31 @@ const NotFound = () => {
     title: 'Page Not Found - KepoBro News',
     meta: [
       {
-        property: 'description',
+        name: 'description',
         content: 'Halaman tidak ditemukan. Silahkan kembali ke halaman awal.'
       },
       {
-        property: 'title',
+        name: 'title',
         content: 'Page Not Found - KepoBro News'
       },
       {
-        property: 'og:description',
+        name: 'og:description',
         content: 'Halaman tidak ditemukan. Silahkan kembali ke halaman awal.'
       },
       {
-        property: 'og:title',
+        name: 'og:title',
         content: 'Page Not Found - KepoBro News'
       },
       {
-        property: 'og:url',
+        name: 'og:url',
         content: 'https://news.andriannus.id'
       },
       {
-        property: 'twitter:description',
+        name: 'twitter:description',
         content: 'Halaman tidak ditemukan. Silahkan kembali ke halaman awal.'
       },
       {
-        property: 'twiter:title',
+        name: 'twiter:title',
         content: 'Page Not Found - KepoBro News'
       }
     ]
