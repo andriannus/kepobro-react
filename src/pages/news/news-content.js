@@ -1,8 +1,9 @@
 import React, { Fragment, useContext } from 'react';
 import Helmet from 'react-helmet';
 
-import NewsContext from 'pages/news/modules/services/news.context';
+import LoaderNews from 'shared/components/loader-news';
 import { IMAGE } from 'shared/constants/news.constant';
+import NewsContext from 'pages/news/modules/services/news.context';
 
 import 'pages/news/news-content.scss';
 
@@ -55,9 +56,13 @@ const CardHeader = () => {
 }
 
 const CardContent = () => {
+  const { isLoading } = useContext(NewsContext);
+
   return (
     <div className="card-content">
-      <ProgressBar />
+      {
+        (!isLoading ? null : <LoaderNews />)
+      }
 
       <Article />
     </div>
@@ -161,20 +166,5 @@ const Article = () => {
         })
       }
     </Fragment>
-  )
-}
-
-const ProgressBar = () => {
-  const { isLoading } = useContext(NewsContext);
-
-  if (!isLoading) return null;
-
-  return (
-    <progress
-      className="progress is-small is-dark"
-      max="100"
-    >
-      15%
-    </progress>
   )
 }
