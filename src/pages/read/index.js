@@ -3,7 +3,7 @@ import { format } from 'date-fns';
 import idLocale from 'date-fns/locale/id';
 
 import ReadContext from 'pages/read/modules/services/read.context';
-import { Container } from 'pages/read/read';
+import { Container } from 'pages/read/read-content';
 
 import 'pages/read/read.scss';
 
