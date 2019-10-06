@@ -1,11 +1,7 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 
-export const Container = () => {
-  return (
-    <Loader />
-  )
-}
+export const Container = () => <Loader />
 
 const Loader = () => {
   const Loaders = [];
