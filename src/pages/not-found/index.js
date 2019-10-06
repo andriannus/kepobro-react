@@ -37,9 +37,7 @@ const NotFound = () => {
     ]
   };
 
-  return (
-    <Container head={head} />
-  );
+  return <Container head={head} />
 }
 
 export default NotFound;

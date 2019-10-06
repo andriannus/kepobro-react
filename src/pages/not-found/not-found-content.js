@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +6,7 @@ import errorImage from 'assets/images/error-404.png';
 
 export const Container = ({ head }) => {
   return (
-    <Fragment>
+    <>
       <Head head={head} />
 
       <div className="has-text-centered">
@@ -25,7 +25,7 @@ export const Container = ({ head }) => {
           Back to Home
         </Link>
       </div>
-    </Fragment>
+    </>
   )
 }
 

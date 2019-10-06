@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 import Helmet from 'react-helmet';
 
 import LoaderNews from 'shared/components/loader-news';
@@ -9,7 +9,7 @@ import 'pages/news/news-content.scss';
 
 export const Container = () => {
   return (
-    <Fragment>
+    <>
       <Head />
 
       <div className="card">
@@ -19,7 +19,7 @@ export const Container = () => {
 
         <CardFooter />
       </div>
-    </Fragment>
+    </>
   )
 }
 
@@ -130,7 +130,7 @@ const Article = () => {
   if (isLoading) return null;
 
   return (
-    <Fragment>
+    <>
       {
         articles.map((article, key) => {
           return (
@@ -165,6 +165,6 @@ const Article = () => {
           )
         })
       }
-    </Fragment>
+    </>
   )
 }

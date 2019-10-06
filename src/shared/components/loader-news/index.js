@@ -1,11 +1,7 @@
 import React from 'react';
 
-import { Container } from 'shared/components/loader-news/loader-news';
+import { Container } from 'shared/components/loader-news/loader-news-content';
 
-const LoaderNews = () => {
-  return (
-    <Container />
-  )
-}
+const LoaderNews = () => <Container />
 
 export default LoaderNews;

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { Container } from 'shared/components/button-to-top/button-to-top';
+import { Container } from 'shared/components/button-to-top/button-to-top-content';
 
 const ButtonToTop = () => {
   useEffect(() => {
@@ -23,9 +23,7 @@ const ButtonToTop = () => {
     document.documentElement.scrollTop = 0
   }
 
-  return (
-    <Container onBackToTop={backToTop} />
-  );
+  return <Container onBackToTop={backToTop} />
 }
 
 export default ButtonToTop;

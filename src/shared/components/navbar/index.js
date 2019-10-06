@@ -1,11 +1,7 @@
 import React from 'react';
 
-import { Container } from 'shared/components/navbar/navbar';
+import { Container } from 'shared/components/navbar/navbar-content';
 
-const Navbar = () => {
-  return (
-    <Container />
-  )
-}
+const Navbar = () => <Container />
 
 export default Navbar;

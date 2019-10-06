@@ -28,7 +28,7 @@ const MainRoutes = () => {
             <Route
               exact
               key={key}
-              path={`/${category !== 'trending' ? category : ''}`}
+              path={`/${category === 'trending' ? '' : category}`}
               render={
                 (props) => <LoadableNews category={category} {...props} />
               }

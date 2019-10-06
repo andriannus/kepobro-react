@@ -1,11 +1,7 @@
 import React from 'react';
 
-import { Container } from 'shared/components/sidebar-left/sidebar-left';
+import { Container } from 'shared/components/sidebar-left/sidebar-left-content';
 
-const SidebarLeft = () => {
-  return (
-    <Container />
-  )
-}
+const SidebarLeft = () => <Container />
 
 export default SidebarLeft;
