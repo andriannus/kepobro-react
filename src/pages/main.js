@@ -1,28 +1,24 @@
 import React from 'react';
-import Loadable from 'react-loadable';
+import loadable from '@loadable/component';
 
 import MainRoutes from 'pages/main.routes';
 import { loadSharedComponent } from 'shared/utils/operation.util';
 
-const LoadableNavbar = Loadable({
-  loader: () => loadSharedComponent('navbar'),
-  loading: () => null
-})
+const LoadableNavbar = loadable(() => {
+  return loadSharedComponent('navbar');
+});
 
-const LoadableSidebarLeft = Loadable({
-  loader: () => loadSharedComponent('sidebar-left'),
-  loading: () => null
-})
+const LoadableSidebarLeft = loadable(() => {
+  return loadSharedComponent('sidebar-left');
+});
 
-const LoadableSidebarRight = Loadable({
-  loader: () => loadSharedComponent('sidebar-right'),
-  loading: () => null
-})
+const LoadableSidebarRight = loadable(() => {
+  return loadSharedComponent('sidebar-right');
+});
 
-const LoadableButtonToTop = Loadable({
-  loader: () => loadSharedComponent('button-to-top'),
-  loading: () => null
-})
+const LoadableButtonToTop = loadable(() => {
+  return loadSharedComponent('button-to-top');
+});
 
 const Main = () => {
   return (

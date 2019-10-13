@@ -1,23 +1,20 @@
 import React from 'react';
-import Loadable from 'react-loadable';
 import { Switch, Route, withRouter } from 'react-router-dom';
+import loadable from '@loadable/component';
 
 import { CATEGORIES } from 'shared/constants/news.constant';
 
-const LoadableNews = Loadable({
-  loader: () => import('pages/news'),
-  loading: () => null,
-});
-
-const LoadableNotFound = Loadable({
-  loader: () => import('pages/not-found'),
-  loading: () => null
-});
-
-const LoadableReadNews = Loadable({
-  loader: () => import('pages/read'),
-  loading: () => null
+const LoadableNews = loadable(() => {
+  return import('pages/news');
 })
+
+const LoadableNotFound = loadable(() => {
+  return import('pages/not-found');
+})
+
+const LoadableReadNews = loadable(() => {
+  return import('pages/read');
+});
 
 const MainRoutes = () => {
   return (
