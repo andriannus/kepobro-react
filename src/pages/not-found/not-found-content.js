@@ -1,12 +1,12 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 import errorImage from 'assets/images/error-404.png';
 
 export const Container = ({ head }) => {
   return (
-    <>
+    <HelmetProvider>
       <Head head={head} />
 
       <div className="has-text-centered">
@@ -25,7 +25,7 @@ export const Container = ({ head }) => {
           Back to Home
         </Link>
       </div>
-    </>
+    </HelmetProvider>
   )
 }
 

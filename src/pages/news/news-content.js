@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import LoaderNews from 'shared/components/loader-news';
 import { IMAGE } from 'shared/constants/news.constant';
@@ -9,7 +9,7 @@ import 'pages/news/news-content.scss';
 
 export const Container = () => {
   return (
-    <>
+    <HelmetProvider>
       <Head />
 
       <div className="card">
@@ -19,7 +19,7 @@ export const Container = () => {
 
         <CardFooter />
       </div>
-    </>
+    </HelmetProvider>
   )
 }
 
