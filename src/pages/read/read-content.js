@@ -91,7 +91,9 @@ const CardFooter = () => {
         rel="noreferrer"
         target="blank"
       >
-        <span>Continue Reading</span>
+        <span>
+          { article.content ? 'Continue Reading' : 'Go to Website' }
+        </span>
 
         <span className="icon">
           <i className="fas fa-external-link-square-alt" />
