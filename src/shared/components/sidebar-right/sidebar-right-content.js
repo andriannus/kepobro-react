@@ -45,9 +45,7 @@ const CardContent = () => {
           <strong>Andriannus Parasian</strong>
         </p>
 
-        <p>
-          Front-end Engineer at Tunaiku
-        </p>
+        <p>Front-end Engineer at Tunaiku</p>
       </div>
     </div>
   )

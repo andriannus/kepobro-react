@@ -23,7 +23,7 @@ const Read = ({ history }) => {
   }, []);
 
   function articleFormat(text) {
-    if (!text) return ''
+    if (!text) return '-- No Content --'
 
     const tempArr = text.split('')
     const startSub = tempArr.indexOf('[')
@@ -35,7 +35,7 @@ const Read = ({ history }) => {
   }
 
   function dateFormat(date) {
-    if (!date) return ''
+    if (!date) return '-- No Date --'
 
     return format(date, 'dddd, DD MMMM YYYY · HH:mm', { locale: idLocale })
   }

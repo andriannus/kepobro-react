@@ -62,7 +62,7 @@ const CardContent = () => {
       <div className="level">
         <div className="level-left">
           <span className="is-size-7">
-            { article.author }
+            { article.author || '-- No Author --' }
           </span>
         </div>
 
@@ -103,9 +103,7 @@ const CardFooter = () => {
 
 const NotFound = () => {
   return (
-    <div
-      className="has-text-centered"
-    >
+    <div className="has-text-centered">
       <div className="mb-10">
         <img
           src={errorImage}
@@ -118,10 +116,7 @@ const NotFound = () => {
         <em>No article selected</em>
       </p>
 
-      <Link
-        className="button is-dark"
-        to="/"
-      >
+      <Link className="button is-dark" to="/">
         Back to Home
       </Link>
     </div>

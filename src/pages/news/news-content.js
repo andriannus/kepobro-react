@@ -60,9 +60,7 @@ const CardContent = () => {
 
   return (
     <div className="card-content">
-      {
-        (!isLoading ? null : <LoaderNews />)
-      }
+      {(!isLoading ? null : <LoaderNews />)}
 
       <Article />
     </div>
@@ -75,9 +73,7 @@ const CardFooter = () => {
   if (isLoading) return null;
 
   return (
-    <footer
-      className="card-footer"
-    >
+    <footer className="card-footer">
       <div className="card-footer-item">
         <span>
           <em>All displayed</em>
@@ -96,7 +92,7 @@ const RefreshButton = () => {
     <span
       className="card-header-icon"
       title="Refresh News"
-      onClick={() => window.location.reload() }
+      onClick={() => window.location.reload()}
     >
       <span className="icon">
         <i className="fas fa-sync-alt"></i>
@@ -107,12 +103,7 @@ const RefreshButton = () => {
 
 const ArticleImage = ({ imageTitle, urlToImage }) => {
   if (!urlToImage) {
-    return (
-      <img
-        src={IMAGE.error}
-        alt={imageTitle}
-      />
-    )
+    return <img src={IMAGE.error} alt={imageTitle} />
   }
 
   return (
@@ -145,9 +136,7 @@ const Article = () => {
               </figure>
 
               <div className="media-content">
-                <div
-                  className="content"
-                >
+                <div className="content">
                   <p
                     className="has-text-justified mb-10 is-link"
                     onClick={() => onReadArticle(article)}
@@ -157,7 +146,7 @@ const Article = () => {
 
                   <span>
                     <i className="fas fa-globe mr-5"></i>
-                    {article.source.name}
+                    { article.source.name }
                   </span>
                 </div>
               </div>
