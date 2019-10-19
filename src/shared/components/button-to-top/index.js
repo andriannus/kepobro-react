@@ -6,11 +6,9 @@ const ButtonToTop = () => {
   useEffect(() => {
     window.onscroll = () => {
       const button = document.getElementById('ButtonToTop');
+      const { body, documentElement } = document;
 
-      if (
-        document.body.scrollTop > 300 ||
-        document.documentElement.scrollTop > 300
-      ) {
+      if ( body.scrollTop > 300 || documentElement.scrollTop > 300) {
         button.style.display = 'block';
       } else {
         button.style.display = 'none';
@@ -19,8 +17,15 @@ const ButtonToTop = () => {
   }, []);
 
   function backToTop() {
-    document.body.scrollTop = 0
-    document.documentElement.scrollTop = 0
+    const scrollStep = -window.scrollY / (500 / 15);
+    const scrollInterval = setInterval(() => {
+      if (window.scrollY === 0) {
+        clearInterval(scrollInterval);
+        return;
+      }
+
+      window.scrollBy(0, scrollStep);
+    }, 15);
   }
 
   return <Container onBackToTop={backToTop} />

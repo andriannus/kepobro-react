@@ -3,4 +3,8 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
+
+  &:hover {
+    box-shadow: 0 8px 6px -6px black;
+  }
 }
