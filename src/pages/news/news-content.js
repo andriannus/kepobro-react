@@ -2,12 +2,17 @@ import React, { useContext } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import LoaderNews from 'shared/components/loader-news';
+import NoConnection from 'shared/components/no-connection';
 import { IMAGE } from 'shared/constants/news.constant';
 import NewsContext from 'pages/news/modules/services/news.context';
 
 import 'pages/news/news-content.scss';
 
 export const Container = () => {
+  const { articles } = useContext(NewsContext);
+
+  if (!articles) return <NoConnection />;
+
   return (
     <HelmetProvider>
       <Head />
@@ -42,15 +47,15 @@ const Head = () => {
 }
 
 const CardHeader = () => {
-  const { title } = useContext(NewsContext);
+  const { isLoading, title } = useContext(NewsContext);
 
   return (
     <header className="card-header">
       <span className="card-header-title">
-        {title}
+        { title }
       </span>
 
-      <RefreshButton />
+      { isLoading ? null : <RefreshButton /> }
     </header>
   )
 }
@@ -60,9 +65,7 @@ const CardContent = () => {
 
   return (
     <div className="card-content">
-      {(!isLoading ? null : <LoaderNews />)}
-
-      <Article />
+      { (isLoading ? <LoaderNews /> : <Article />) }
     </div>
   )
 }
@@ -84,10 +87,6 @@ const CardFooter = () => {
 }
 
 const RefreshButton = () => {
-  const { isLoading } = useContext(NewsContext);
-
-  if (isLoading) return null;
-
   return (
     <span
       className="card-header-icon"
@@ -116,9 +115,7 @@ const ArticleImage = ({ imageTitle, urlToImage }) => {
 }
 
 const Article = () => {
-  const { articles, isLoading, onReadArticle } = useContext(NewsContext);
-
-  if (isLoading) return null;
+  const { articles, onReadArticle } = useContext(NewsContext);
 
   return (
     <>

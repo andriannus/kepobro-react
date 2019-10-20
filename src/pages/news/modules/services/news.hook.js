@@ -19,6 +19,9 @@ const useFetchArticles = (url) => {
         if (axios.isCancel(error)) {
           console.log('Request canceled');
         }
+
+        setArticles(null);
+        setIsLoading(false);
       }
     })();
 
