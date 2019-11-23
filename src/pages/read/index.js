@@ -22,29 +22,33 @@ const Read = ({ history }) => {
     }
   }, []);
 
-  function articleFormat(text) {
-    if (!text) return '-- No Content --'
+  const articleFormat = (text) => {
+    if (!text) return '-- No Content --';
 
-    const tempArr = text.split('')
-    const startSub = tempArr.indexOf('[')
-    const finishSub = tempArr.indexOf(']')
-    const substractSub = parseInt(finishSub) - parseInt(startSub) + 1
-    const findString = text.substr(startSub, substractSub)
+    const tempArr = text.split('');
+    const startSub = tempArr.indexOf('[');
+    const finishSub = tempArr.indexOf(']');
+    const substractSub = parseInt(finishSub) - parseInt(startSub) + 1;
+    const findString = text.substr(startSub, substractSub);
 
-    return text.replace(findString, '')
+    return text.replace(findString, '');
   }
 
-  function dateFormat(date) {
-    if (!date) return '-- No Date --'
+  const dateFormat = (date) => {
+    if (!date) return '-- No Date --';
 
-    return format(date, 'dddd, DD MMMM YYYY · HH:mm', { locale: idLocale })
+    return format(date, 'dddd, DD MMMM YYYY · HH:mm', { locale: idLocale });
   }
 
   return (
     <ReadContext.Provider
-      value={
-        { article, articleFormat, dateFormat, history, isNotFound }
-      }
+      value={{
+        article,
+        articleFormat,
+        dateFormat,
+        history,
+        isNotFound,
+      }}
     >
       <Container />
     </ReadContext.Provider>
