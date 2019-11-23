@@ -1,21 +1,22 @@
 import React, { useContext } from 'react';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 
+import NewsContext from 'pages/news/modules/services/news.context';
 import LoaderNews from 'shared/components/loader-news';
 import NoConnection from 'shared/components/no-connection';
 import { IMAGE } from 'shared/constants/news.constant';
-import NewsContext from 'pages/news/modules/services/news.context';
+import SEO from 'shared/components/seo';
 
 import 'pages/news/news-content.scss';
 
 export const Container = () => {
-  const { articles } = useContext(NewsContext);
+  const { articles, category } = useContext(NewsContext);
 
   if (!articles) return <NoConnection />;
 
   return (
     <HelmetProvider>
-      <Head />
+      <SEO category={category} />
 
       <div className="card">
         <CardHeader />
@@ -25,24 +26,6 @@ export const Container = () => {
         <CardFooter />
       </div>
     </HelmetProvider>
-  )
-}
-
-const Head = () => {
-  const { head } = useContext(NewsContext);
-
-  return (
-    <Helmet>
-      <title>{ head.title }</title>
-
-      {
-        head.meta.map((m, key) => {
-          return (
-            <meta key={key} name={m.name} content={m.content} />
-          )
-        })
-      }
-    </Helmet>
   )
 }
 
