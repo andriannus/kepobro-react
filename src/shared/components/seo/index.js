@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { Container } from 'shared/components/seo/seo-content';
+import { META_TAG } from 'shared/constants/news.constant';
 import { capitalize } from 'shared/utils/string.util';
 
 const SEO = ({ category }) => {
@@ -8,20 +9,26 @@ const SEO = ({ category }) => {
   const [title, setTitle] = useState('');
 
   useEffect(() => {
+    const { notFound, trending } = META_TAG;
+
     const getTitle = (category) => {
       if (category === 'trending') {
-       return 'KepoBro News - Kepoin tentang yang hits saat ini!';
+        return trending.title;
+      } else if(category === 'notFound') {
+        return notFound.title;
+      } else {
+        return `${capitalize(category)} - KepoBro News`;
       }
-
-      return `${capitalize(category)} - KepoBro News`;
     }
 
     const getDescription = (category) => {
       if (category === 'trending') {
-        return 'Berita lengkap dan terupdate dari News API';
+        return trending.description;
+      } else if (category === 'notFound') {
+        return notFound.description;
+      } else {
+        return `Berita lengkap dan terupdate mengenai ${category} dari News API`;
       }
-    
-      return `Berita lengkap dan terupdate mengenai ${category} dari News API`;
     }
 
     setTitle(getTitle(category))

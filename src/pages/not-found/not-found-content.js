@@ -1,13 +1,14 @@
 import React from 'react';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 import errorImage from 'assets/images/error-404.png';
+import SEO from 'shared/components/seo';
 
-export const Container = ({ head }) => {
+export const Container = () => {
   return (
     <HelmetProvider>
-      <Head head={head} />
+      <SEO category='notFound' />
 
       <div className="has-text-centered">
         <div className="mb-10">
@@ -26,21 +27,5 @@ export const Container = ({ head }) => {
         </Link>
       </div>
     </HelmetProvider>
-  )
-}
-
-const Head = ({ head }) => {
-  return (
-    <Helmet>
-      <title>{ head.title }</title>
-
-      {
-        head.meta.map((m, key) => {
-          return (
-            <meta key={key} name={m.name} content={m.content} />
-          )
-        })
-      }
-    </Helmet>
   )
 }

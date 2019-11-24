@@ -8,6 +8,17 @@ export const CATEGORIES = [
   'trending'
 ];
 
+export const META_TAG = {
+  notFound: {
+    description: 'Halaman tidak ditemukan. Silahkan kembali ke halaman awal.',
+    title: 'Page Not Found - KepoBro News'
+  },
+  trending: {
+    description: 'Berita lengkap dan terupdate dari News API',
+    title: 'KepoBro News - Kepoin tentang yang hits saat ini!'
+  }
+}
+
 export const NAVBAR_MENUS = [
   {
     name: 'Github',
