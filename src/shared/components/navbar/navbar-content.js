@@ -49,7 +49,7 @@ const NavbarMenu = () => {
                     <span className="icon">
                       <i className={menu.icon} />
                     </span>
-                    <span>{menu.name}</span>
+                    <span>{ menu.name }</span>
                   </a>
                 )
               })

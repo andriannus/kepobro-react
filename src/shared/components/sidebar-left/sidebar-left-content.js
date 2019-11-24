@@ -2,13 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { CATEGORIES } from 'shared/constants/news.constant';
+
 import 'shared/components/sidebar-left/sidebar-left.scss';
 
 export const Container = () => {
   return (
     <div className="column">
       <Mobile />
-
       <Desktop />
     </div>
   )
@@ -17,9 +17,7 @@ export const Container = () => {
 const Mobile = () => {
   return (
     <div className="bra-3 has-background-white">
-      <div
-        className="tabs is-toggle is-hidden-tablet"
-      >
+      <div className="tabs is-toggle is-hidden-tablet">
         <ul>
           {
             CATEGORIES.map((category, key) => {
@@ -49,7 +47,6 @@ const Desktop = () => {
   return (
     <div className="card is-hidden-mobile sidebar">
       <CardHeader />
-
       <CardContent />
     </div>
   )
@@ -81,7 +78,7 @@ const CardContent = () => {
                     to={`/${category}`}
                   >
                     <span className="is-capitalized">
-                      {category}
+                      { category }
                     </span>
                   </NavLink>
                 </li>

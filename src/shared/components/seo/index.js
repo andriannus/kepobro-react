@@ -65,7 +65,7 @@ const SEO = ({ category }) => {
     ])
   }, [category]);
 
-  return <Container meta={meta} title={title} />
+  return <Container meta={meta} title={title} />;
 }
 
 export default SEO;

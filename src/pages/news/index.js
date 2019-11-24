@@ -43,7 +43,7 @@ const News = ({ category, history }) => {
     >
       <Container />
     </NewsContext.Provider>
-  )
+  );
 }
 
 export default News;

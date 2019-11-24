@@ -8,9 +8,7 @@ export const Container = () => {
       <div className="sidebar">
         <div className="card mb-10">
           <CardHeader />
-
           <CardContent />
-
           <CardFooter />
         </div>
 

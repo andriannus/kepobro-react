@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 
-import NewsContext from 'pages/news/modules/services/news.context';
 import LoaderNews from 'shared/components/loader-news';
 import NoConnection from 'shared/components/no-connection';
-import { IMAGE } from 'shared/constants/news.constant';
 import SEO from 'shared/components/seo';
+
+import NewsContext from 'pages/news/modules/services/news.context';
+import { IMAGE } from 'shared/constants/news.constant';
 
 import 'pages/news/news-content.scss';
 
@@ -20,9 +21,7 @@ export const Container = () => {
 
       <div className="card">
         <CardHeader />
-
         <CardContent />
-
         <CardFooter />
       </div>
     </HelmetProvider>
@@ -121,7 +120,7 @@ const Article = () => {
                     className="has-text-justified mb-10 is-link"
                     onClick={() => onReadArticle(article)}
                   >
-                    <strong>{article.title}</strong>
+                    <strong>{ article.title }</strong>
                   </p>
 
                   <span>
