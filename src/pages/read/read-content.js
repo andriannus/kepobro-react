@@ -3,21 +3,20 @@ import { Link } from 'react-router-dom';
 
 import errorImage from 'assets/images/error-404.png';
 import ReadContext from 'pages/read/modules/services/read.context';
-import { IMAGE } from 'shared/constants/news.constant';
+import {
+  IMAGE,
+  TEXT_FOR_CONTENT_NOT_FOUND
+} from 'shared/constants/news.constant';
 
 export const Container = () => {
   const { isNotFound } = useContext(ReadContext);
 
-  if(isNotFound) return <NotFound />
+  if (isNotFound) return <NotFound />;
 
   return (
-    <div
-      className="card"
-    >
+    <div className="card">
       <CardHeader />
-
       <CardContent />
-
       <CardFooter />
     </div>
   )
@@ -43,7 +42,11 @@ const CardHeader = () => {
 }
 
 const CardContent = () => {
-  const { article, articleFormat, dateFormat } = useContext(ReadContext);
+  const {
+    article,
+    getFormattedArticle,
+    getFormattedDate
+  } = useContext(ReadContext);
 
   return (
     <div className="card-content has-text-justified">
@@ -62,19 +65,19 @@ const CardContent = () => {
       <div className="level">
         <div className="level-left">
           <span className="is-size-7">
-            { article.author || '-- No Author --' }
+            { article.author || TEXT_FOR_CONTENT_NOT_FOUND.author }
           </span>
         </div>
 
         <div className="level-right">
           <span className="is-size-7">
-            { dateFormat(article.publishedAt) }
+            { getFormattedDate(article.publishedAt) }
           </span>
         </div>
       </div>
 
       <p className="is-size-6">
-        { articleFormat(article.content) }
+        { getFormattedArticle(article.content) }
       </p>
     </div>
   )

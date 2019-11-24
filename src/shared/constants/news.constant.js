@@ -1,3 +1,5 @@
+export const ARTICLE_DATE_FORMAT = 'dddd, DD MMMM YYYY · HH:mm';
+
 export const CATEGORIES = [
   'business',
   'entertainment',
@@ -43,3 +45,9 @@ export const NAVBAR_MENUS = [
 export const IMAGE = {
   error: 'https://bulma.io/images/placeholders/480x320.png',
 };
+
+export const TEXT_FOR_CONTENT_NOT_FOUND = {
+  author: '-- No Author --',
+  content: '-- No Content --',
+  date: '-- No Date --'
+}

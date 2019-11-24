@@ -4,6 +4,10 @@ import idLocale from 'date-fns/locale/id';
 
 import ReadContext from 'pages/read/modules/services/read.context';
 import { Container } from 'pages/read/read-content';
+import {
+  ARTICLE_DATE_FORMAT,
+  TEXT_FOR_CONTENT_NOT_FOUND
+} from 'shared/constants/news.constant';
 
 import 'pages/read/read.scss';
 
@@ -14,7 +18,7 @@ const Read = ({ history }) => {
   useEffect(() => {
     const data = localStorage.getItem('article') || ''
 
-    if (!!data === true) {
+    if (!!data) {
       setIsNotFound(false);
       setArticle(JSON.parse(data));
     } else {
@@ -22,8 +26,8 @@ const Read = ({ history }) => {
     }
   }, []);
 
-  const articleFormat = (text) => {
-    if (!text) return '-- No Content --';
+  const getFormattedArticle = (text) => {
+    if (!text) return TEXT_FOR_CONTENT_NOT_FOUND.content;
 
     const tempArr = text.split('');
     const startSub = tempArr.indexOf('[');
@@ -34,25 +38,25 @@ const Read = ({ history }) => {
     return text.replace(findString, '');
   }
 
-  const dateFormat = (date) => {
-    if (!date) return '-- No Date --';
+  const getFormattedDate = (date) => {
+    if (!date) return TEXT_FOR_CONTENT_NOT_FOUND.date;
 
-    return format(date, 'dddd, DD MMMM YYYY · HH:mm', { locale: idLocale });
+    return format(date, ARTICLE_DATE_FORMAT, { locale: idLocale });
   }
 
   return (
     <ReadContext.Provider
       value={{
         article,
-        articleFormat,
-        dateFormat,
+        getFormattedArticle,
+        getFormattedDate,
         history,
         isNotFound,
       }}
     >
       <Container />
     </ReadContext.Provider>
-  )
+  );
 }
 
 export default Read;
