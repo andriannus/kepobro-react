@@ -5,7 +5,7 @@ import { Container } from 'shared/components/button-to-top/button-to-top-content
 const ButtonToTop = () => {
   useEffect(() => {
     window.onscroll = () => {
-      const button = document.getElementById('ButtonToTop');
+      const button = document.getElementById('BtnBackToTop');
       const { body, documentElement } = document;
 
       if ( body.scrollTop > 300 || documentElement.scrollTop > 300) {
@@ -16,7 +16,7 @@ const ButtonToTop = () => {
     }
   }, []);
 
-  function backToTop() {
+  const backToTop = () => {
     const scrollStep = -window.scrollY / (500 / 15);
     const scrollInterval = setInterval(() => {
       if (window.scrollY === 0) {
@@ -28,7 +28,7 @@ const ButtonToTop = () => {
     }, 15);
   }
 
-  return <Container onBackToTop={backToTop} />
+  return <Container onBackToTop={backToTop} />;
 }
 
 export default ButtonToTop;

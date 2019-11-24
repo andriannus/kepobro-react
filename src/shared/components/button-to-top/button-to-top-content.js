@@ -5,7 +5,7 @@ import 'shared/components/button-to-top/button-to-top.scss';
 export const Container = ({ onBackToTop }) => {
   return (
     <button
-      id="ButtonToTop"
+      id="BtnBackToTop"
       className="button is-dark is-medium"
       onClick={onBackToTop}
     >
