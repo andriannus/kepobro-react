@@ -6,7 +6,7 @@ export const Container = () => {
   return (
     <div className="column">
       <div className="sidebar">
-        <div className="card mb-10">
+        <div className="card bra-10 mb-10">
           <CardHeader />
           <CardContent />
           <CardFooter />

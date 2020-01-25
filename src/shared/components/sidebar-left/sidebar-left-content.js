@@ -16,7 +16,7 @@ export const Container = () => {
 
 const Mobile = () => {
   return (
-    <div className="bra-3 has-background-white">
+    <div className="card bra-10 has-background-white">
       <div className="tabs is-toggle is-hidden-tablet">
         <ul>
           {
@@ -45,7 +45,7 @@ const Mobile = () => {
 
 const Desktop = () => {
   return (
-    <div className="card is-hidden-mobile sidebar">
+    <div className="card bra-10 is-hidden-mobile sidebar">
       <CardHeader />
       <CardContent />
     </div>

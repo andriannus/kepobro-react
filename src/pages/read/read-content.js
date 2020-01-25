@@ -14,7 +14,7 @@ export const Container = () => {
   if (isNotFound) return <NotFound />;
 
   return (
-    <div className="card">
+    <div className="card bra-10">
       <CardHeader />
       <CardContent />
       <CardFooter />

@@ -19,7 +19,7 @@ export const Container = () => {
     <HelmetProvider>
       <SEO category={category} />
 
-      <div className="card">
+      <div className="card bra-10">
         <CardHeader />
         <CardContent />
         <CardFooter />
