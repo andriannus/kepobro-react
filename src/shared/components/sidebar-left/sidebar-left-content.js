@@ -16,8 +16,8 @@ export const Container = () => {
 
 const Mobile = () => {
   return (
-    <div className="card bra-10 has-background-white">
-      <div className="tabs is-toggle is-hidden-tablet">
+    <div className="card bra-10 has-background-white is-hidden-tablet">
+      <div className="tabs is-toggle">
         <ul>
           {
             CATEGORIES.map((category, key) => {
